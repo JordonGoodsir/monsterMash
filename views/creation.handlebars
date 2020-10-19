@@ -1,0 +1,93 @@
+<form id="creation" action="/creation" method="post">
+
+    {{!-- head selection --}}
+    <label for="head">Head: </label>
+    <select id="head" name="head">
+        <option value="zombo_head">Zombo Head</option>
+        <option value="big_head">Big Foot Head</option>
+        <option value="vamp_head">Vampire Head</option>
+        <option value="robo_head">Robot Head</option>
+        <option value="headless_head">Headless Horseman Head</option>
+    </select>
+
+    <br>
+
+    {{!-- body selection --}}
+    <label for="torso">Torso: </label>
+    <select id="torso" name="torso">
+        <option value="zombo_torso">Zombo Torso</option>
+        <option value="big_torso">Big Foot Torso</option>
+        <option value="vamp_torso">Vampire Torso</option>
+        <option value="robo_torso">Robot Torso</option>
+        <option value="headless_torso">Headless Horseman Torso</option>
+    </select>
+
+    <br>
+
+    {{!-- right arm selection --}}
+    <label for="right_arm">Right Arm: </label>
+    <select id="right_arm" name="right_arm">
+        <option value="zombo_right_arm">Zombo Right Arm</option>
+        <option value="big_right_arm">Big Foot Right Arm</option>
+        <option value="vamp_right_arm">Vampire Right Arm</option>
+        <option value="robo_right_arm">Robot Right Arm</option>
+        <option value="headless_right_arm">Headless Horseman Right Arm</option>
+    </select>
+
+    <br>
+
+    {{!-- left arm selection --}}
+    <label for="left_arm">Left Arm: </label>
+    <select id="left_arm" name="left_arm">
+        <option value="zombo_left_arm">Zombo Left Arm</option>
+        <option value="big_left_arm">Big Foot Left Arm</option>
+        <option value="vamp_left_arm">Vampire Left Arm</option>
+        <option value="robo_left_arm">Robot Left Arm</option>
+        <option value="headless_left_arm">Headless Horseman Left Arm</option>
+    </select>
+
+    <br>
+
+    {{!-- right leg selection --}}
+    <label for="right_leg">Right Leg: </label>
+    <select id="right_leg" name="right_leg">
+        <option value="zombo_right_leg">Zombo Right Leg</option>
+        <option value="big_right_leg">Big Foot Right Leg</option>
+        <option value="vamp_right_leg">Vampire Right Leg</option>
+        <option value="robo_right_leg">Robot Right Leg</option>
+        <option value="headless_right_leg">Headless Horseman Right Leg</option>
+    </select>
+
+    <br>
+
+    {{!-- left leg selection --}}
+    <label for="left_leg">Left Leg: </label>
+    <select id="left_leg" name="left_leg">
+        <option value="zombo_left_leg">Zombo Left Leg</option>
+        <option value="big_left_leg">Big Foot Left Leg</option>
+        <option value="vamp_left_leg">Vampire Left Leg</option>
+        <option value="robo_left_leg">Robot Left Leg</option>
+        <option value="headless_left_leg">Headless Horseman Left Leg</option>
+    </select>
+
+    <br>
+
+    <input type="submit">
+</form>
+
+<div id="monster">
+    <img class="vampire" src="Images/Vampire.png" alt="Vampire" width="128" height="128"></img>
+</div>
+
+<script>
+
+    {{!-- let form = document.getElementById("creation")
+
+    function stopSubmit(event) { event.preventDefault() }
+    form.addEventListener("submit", stopSubmit) --}}
+
+    {{!-- function test() {
+        document.body.style.backgroundColor = "#000000";
+    } --}}
+
+</script>
