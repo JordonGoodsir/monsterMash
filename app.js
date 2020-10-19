@@ -1,12 +1,16 @@
 // requires
 const express = require('express');
 const mongoose = require('mongoose');  
-var exphbs = require('express-handlebars');
-const indexRouter =  require(`./routes/index_routes`);  
+var exphbs  = require('express-handlebars');
+const indexRouter =  require(`./routes/index_routes`);   
+const authRouter =  require(`./routes/auth_routes`);   
+const pagesRouter =  require(`./routes/pages_routes`);  
 const session = require("express-session") 
 const MongoStore = require('connect-mongo')(session); 
-const passport = require("passport")
+const passport = require("passport") 
 
+// configure local strategy for passport 
+require("./middleware/passport")
 
 
 // set up 
@@ -54,8 +58,8 @@ app.use(session({
 
 
 // enables passport with passport file in middleware folder
-// app.use(passport.initialize()) 
-// app.use(passport.session())
+app.use(passport.initialize()) 
+app.use(passport.session())  
 
 app.get("/", (req, res) => {
 	res.render("home", {layout : "main"})
@@ -97,8 +101,13 @@ app.post("/creation", (req, res) => {
     // res.status(204).send();
 })
 
-// middleware to access secondary routes file
-app.use('/index', indexRouter);
+app.use(express.static("views"));
+
+
+app.use('/index', indexRouter); 
+app.use('/user', authRouter);
+app.use('/', pagesRouter);
+
 
 // confirm server working
 app.listen(port, () => {
