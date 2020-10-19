@@ -8,8 +8,6 @@ const router = express.Router();
 // imports methods from controller  
 const {} = require('../controllers/index_controller'); 
 
-
-
 // exports to app.js 
 module.exports = router; 
 
