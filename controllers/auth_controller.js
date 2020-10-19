@@ -12,7 +12,7 @@ const loginCreate = (req,res,next)=> {
         successRedirect:"/", 
         failureRedirect:"/user/login"
     })
-    login(req,res,next) 
+    login(req,res,next)  
 } 
 
 const register = (req,res) =>{ 

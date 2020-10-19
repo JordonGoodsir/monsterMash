@@ -5,11 +5,9 @@ var exphbs  = require('express-handlebars');
 const indexRouter =  require(`./routes/index_routes`);   
 const authRouter =  require(`./routes/auth_routes`);   
 const pagesRouter =  require(`./routes/pages_routes`);  
-
-
 const session = require("express-session") 
 const MongoStore = require('connect-mongo')(session); 
-const passport = require("passport")
+const passport = require("passport") 
 
 // configure local strategy for passport 
 require("./middleware/passport")
@@ -59,10 +57,12 @@ app.use(session({
 
 // enables passport with passport file in middleware folder
 app.use(passport.initialize()) 
-app.use(passport.session())
+app.use(passport.session())  
 
 
-// middleware to access secondary routes file
+app.use(express.static("views"));
+
+
 app.use('/index', indexRouter); 
 app.use('/user', authRouter);
 app.use('/', pagesRouter);
