@@ -20,9 +20,8 @@ inUse = (req,res,next) => {
     .catch(next)
   }    
 
-  invalidPass = (req,res,next) => {  
-    console.log("password checkage") 
-    User.findOne({passowrd: req.body.password}) 
+  invalidPass = (req,res,next) => {   
+    User.findOne({password: req.body.password}) 
     .then(user => { 
         if (user) {  
             next()
@@ -34,7 +33,6 @@ inUse = (req,res,next) => {
   }    
 
   invalidEmail = (req,res,next) => {   
-    console.log("email checkage")
     User.findOne({email: req.body.email}) 
     .then(user => { 
         if (user) {  
@@ -44,7 +42,8 @@ inUse = (req,res,next) => {
         )
     }) 
     .catch(next)
-  }  
+  }    
+  
 
 const authorize = (req,res,next) =>{   
     console.log("===========req.user=============")
@@ -65,4 +64,5 @@ module.exports ={
     inUse, 
     invalidPass, 
     invalidEmail
-}
+} 
+
