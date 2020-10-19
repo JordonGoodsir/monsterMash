@@ -16,7 +16,9 @@ router.get("/register", loginRedirect ,register)
 router.post("/register", inUse,registerCreate) 
 
 // destorys session
-router.get("/logout", logout)  
+router.get("/logout", logout)   
+
+
 
 // add authentication to registerCreate, throws error if email is already in use
 // add oath if we want

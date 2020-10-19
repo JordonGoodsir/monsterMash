@@ -6,7 +6,8 @@ const login = (req,res) => {
     res.render("user/login")
 }   
 
-const loginCreate = (req,res,next)=> {   
+const loginCreate = (req,res,next)=> {    
+
     const login = passport.authenticate("local",  
     { 
         successRedirect:"/", 
@@ -39,8 +40,8 @@ const registerCreate = (req,res,next) =>{
 } 
 
 const logout = (req,res) =>{ 
-    req.session.destroy(()=> { 
-        res.redirect("/")
+    req.session.destroy(()=> {   
+        res.redirect("/") 
      }) 
 }
 
