@@ -1,0 +1,334 @@
+<div id="character">
+    <h1>Character</h1>
+</div>
+
+<h1>Story</h1>
+<div id="story">
+    <p>Out of the storm and along the drive of Darkwood Mansion an amalgamation hobbles up to the sturdy iron gates.</p>
+</div>
+
+<div>
+    <button type="button" id="option1">Option1</button>
+    <button type="button" id="option2">Option2</button>
+    <button type="button" id="option3">Option3</button>
+    <button type="button" id="cont">Start</button>
+    <a id="finish" href="/">Return Home</a>
+</div>
+
+<script>
+
+    document.getElementById("option1").style.display = "none";
+    document.getElementById("option2").style.display = "none";
+    document.getElementById("option3").style.display = "none";
+
+    let relation = 0
+    let ending = ""
+    let progress = 0
+    let puzzleCorrect = 0
+    let puzzleChoice = 0
+    let kitchenEntry = "The Painting thanks the monster, ushering them through a door. Following a sweet smell"
+    let dish = ""
+    let artEntry = "The broth smells wonderful, the monster scoups some into a containers and wonders out the door"
+    let gardenEntry = "As the pups play their music, with this the garden plants just outside the window begin to stand up and dance, luring the monster outside."
+    let preEnd = "The monster is greeted by a large dark figure, they introduce themselves as the head of the household..."
+
+    let key = 0
+    let tongue = 0
+    let clue = "Greenskin"
+    let puzzleCount = 0
+
+    document.getElementById("finish").style.display = "none";
+
+    // if (req.user.char.limbs.leftLeg && req.user.char.limbs.rightLeg) {}
+
+    story = () => {  
+        div = document.getElementById("story")  
+        div.innerHTML=""
+
+        document.getElementById("finish").style.display = "none";
+
+        if (progress == 0) {
+            // Foyer
+            cont.innerHTML = "Continue";
+            mansionStory = document.createTextNode("The gate creeks open as the monster approaches enterance stairs, lumbering into the mansion's foyer.  Staring at the marble figureheads lining the walls, their mocking smiles remind the monster of their peers");
+            progress ++;
+        } else if (progress == 1) {
+            // Study
+            mansionStory = document.createTextNode("In an attempt to distract themself, the monster slinks into the nearby study...looking for a book to read the monster comes across a desk, sitting on the desk are two items a skull and a small book of poems.");
+
+            document.getElementById("cont").style.display = "none";
+
+            document.getElementById("option1").style.display = "block";
+            document.getElementById("option2").style.display = "block";
+            document.getElementById("option3").style.display = "block";
+
+            option1.innerHTML = "check desk";
+            option2.innerHTML = "check skull";
+            option3.innerHTML = "read a poem";
+
+            progress ++;
+
+            puzzleCorrect = 1;
+            puzzleChoice = 0;
+
+        } else if (progress == 2) {
+
+            if (puzzleChoice != puzzleCorrect) {
+                // the monster fails the study assignment and is pulled through the painting, letting out a wimper
+                kitchenEntry = "The painting stares furiously at the foolish monster, tearing itself from the canvas the painting grabs the monster and pulls them back through the frame.  Scrambling through the dark, (pots and pans clanking) and finally through a small door"
+                // puzzleChoice = 0
+            } else {
+                relation ++;
+            }
+
+            puzzleCorrect = 2;
+            puzzleChoice = 0;
+
+            // Kitchen
+            mansionStory = document.createTextNode(`${kitchenEntry} the monster finds themself in the mansion's kitchen.  The monster notices a nroth on unattended on the stove and some ingredients nearby.  The reciepe is worn and difficult to read however the title reads 'something witty'.`);
+
+            option1.innerHTML = "Finger";
+            option2.innerHTML = "Brain";
+            option3.innerHTML = "Eye Ball";
+
+            puzzleCount ++;
+            progress ++;
+
+        } else if (progress == 3) {
+
+            if (puzzleChoice != puzzleCorrect) {
+                artEntry = "Once the monster collects some of their creation.  A ghostly chef appears from the walls yelling incoherently. The monster screams at the top of their lungs and bolts out"
+            } else {
+                relation ++;
+            }
+
+            if (puzzleChoice == 1) {
+                dish = "Finger Noodle Soup";
+            } else if (puzzleChoice == 2) {
+                dish = "Boiled Brain";
+            } else if (puzzleChoice == 3) {
+                dish = "Eye Ball Spaghetti";
+            };
+
+            puzzleCorrect = 3;
+            puzzleChoice = 0;
+
+            // Arts
+            mansionStory = document.createTextNode(`${artEntry} into the hall.  The monster continues across the hall through a neighbouring door. A colourful arts room! A small litter of werewolves are trying to form a band.  The monster notices that they are struggling to read the music.  A lone pup stands on the far side of the room painting a treble and a small circle below the following bars.`);
+            // finish the scale
+
+            option1.innerHTML = "A";
+            option2.innerHTML = "B";
+            option3.innerHTML = "C";
+
+            puzzleCount ++;
+            progress ++;
+
+        } else if (progress == 4) {
+
+            if (puzzleChoice != puzzleCorrect) {
+                gardenEntry = "The pups chase the monster out of the house and into the garden, leaving the poor monster a little bloodied."
+            } else {
+                relation ++;
+            }
+
+            if (dish == "Finger Noodle Soup") {
+                puzzleCorrect = 1;
+            } else if (dish == "Boiled Brain") {
+                puzzleCorrect = 2;
+            } else if (dish == "Eye Ball Spaghetti") {
+                puzzleCorrect = 3;
+            };
+
+            puzzleChoice = 0;
+
+            // Garden
+            mansionStory = document.createTextNode(`${gardenEntry}  There are some carnivorous plants that seem a little hungry.  The monster trembles thinking what might happen if they get too close.`);
+            
+            // feed a plant or run away
+
+            option1.innerHTML = "Check the plant tags";
+            cont.innerHTML = "Run Away";
+            document.getElementById("option2").style.display = "none";
+            document.getElementById("option3").style.display = "none";
+
+            //if nugget die
+            puzzleCount ++;
+            progress ++;
+
+        } else if (progress == 5) {
+
+            if (puzzleChoice != puzzleCorrect) {
+                preEnd = "The plant coughs up the broth in disgust, all three plants snap their jaws and lunge at the monster.  The monster turns and runs straight into a branch knocking themselves unconcious."
+            } else {
+                relation ++;
+            }
+
+            document.getElementById("option1").style.display = "none";
+            document.getElementById("option2").style.display = "none";
+            document.getElementById("option3").style.display = "none";
+
+            mansionStory = document.createTextNode(`${preEnd}`)
+
+            cont.innerHTML = "Continue";
+
+            progress ++;
+
+        } else {
+            // End, Dining, Graveyard, Bannished
+            if (relation > 2) {
+                ending = "The figure invites the monster stay for dinner."
+            } else if (relation > 0 && relation < 3) {
+                ending = "The figure escorts the monster of the mansion asking them to never return"
+            } else {
+                ending = "The figure whipsers under their breath, the monster feels tired and drifts off, waking as the figure drags them to an empty grave spot.  The last thing the monster sees is the figure standing over them as dirt is shoveled on top of them."
+            }
+            mansionStory = document.createTextNode(`${ending}`);
+            progress = 0;
+            key = 0;
+            tongue = 0;
+            puzzleCount = 0;
+
+            cont.innerHTML = "Restart";
+            document.getElementById("finish").style.display = "inline";
+        }
+
+        div.appendChild(mansionStory);
+        console.log(relation);
+    }
+
+    inform1 = () => {
+        div = document.getElementById("story")
+        div.innerHTML=""
+
+        if (puzzleCount == 0) {
+            if (key == 0) {
+                mansionStory = document.createTextNode("The draw is locked!");
+            } else if (key == 1) {
+                mansionStory = document.createTextNode("The key fits, *click* the draw opens.  Ew, There is a tongue inside!");
+                if (tongue == 1) {
+                    mansionStory = document.createTextNode("There is nothing else in the draw");
+                };
+                tongue = 1;
+            };
+        };
+
+        if (puzzleCount == 1) {
+            puzzleChoice = 1;
+            mansionStory = document.createTextNode("Goblin Market");
+        };
+
+        if (puzzleCount == 2) {
+            puzzleChoice = 1;
+            mansionStory = document.createTextNode("Finger");
+        };
+
+        if (puzzleCount == 3) {
+            puzzleChoice = 1;
+            mansionStory = document.createTextNode("A");
+        };
+
+        if (puzzleCount == 4) {
+            option1.innerHTML = "Feeler Fern";
+            option2.innerHTML = "Intelligent Flytrap";
+            option3.innerHTML = "Optical Blood Rose";
+
+            document.getElementById("option2").style.display = "block";
+            document.getElementById("option3").style.display = "block";
+
+            cont.innerHTML = "Submit";
+
+            puzzleCount ++;
+        };
+
+        if (puzzleCount == 5) {
+            puzzleChoice = 1;
+            mansionStory = document.createTextNode(`Will feed ${dish} to Feeler Fern`);
+        };
+
+        div.appendChild(mansionStory)
+    }
+
+    inform2 = () => {
+        div = document.getElementById("story")
+        div.innerHTML=""
+
+        if (puzzleCount == 0) {
+            if (key == 0) {
+                mansionStory = document.createTextNode("There is something shiny inside the skull... It's a key!");
+                key = 1;
+            } else if (tongue == 0) {
+                mansionStory = document.createTextNode("There is nothing else in the skull");
+            } else if (tongue == 1) {
+                mansionStory = document.createTextNode(`The skull snaps to life as the tongue is placed inside, reciting the phrase ${clue} before collapsing back onto the desk`);
+            };
+        };
+
+        if (puzzleCount == 1) {
+            puzzleChoice = 2;
+            mansionStory = document.createTextNode("The Sick Rose");
+        };
+
+        if (puzzleCount == 2) {
+            puzzleChoice = 2;
+            mansionStory = document.createTextNode("Brain");
+        };
+
+        if (puzzleCount == 3) {
+            puzzleChoice = 2;
+            mansionStory = document.createTextNode("B");
+        };
+
+        if (puzzleCount == 5) {
+            puzzleChoice = 2;
+            mansionStory = document.createTextNode(`Will feed ${dish} to Intelligent Flytrap`);
+        };
+
+        div.appendChild(mansionStory)
+    }
+
+    inform3 = () => {
+        div = document.getElementById("story")
+        div.innerHTML=""
+
+        mansionStory = document.createTextNode("Poem time!");
+
+        if (puzzleCount == 1) {
+            puzzleChoice = 3;
+            mansionStory = document.createTextNode("Lady Lazarus");
+        };
+
+        if (puzzleCount == 2) {
+            puzzleChoice = 3;
+            mansionStory = document.createTextNode("Eye Ball");
+        };
+
+        if (puzzleCount == 3) {
+            puzzleChoice = 3;
+            mansionStory = document.createTextNode("C");
+        };
+
+        if (puzzleCount == 5) {
+            puzzleChoice = 3;
+            mansionStory = document.createTextNode(`Will feed ${dish} to Optical Blood Rose`);
+        };
+        
+        if (puzzleCount == 0) {
+            option1.innerHTML = "Goblin Market";
+            option2.innerHTML = "The Sick Rose";
+            option3.innerHTML = "Lady Lazarus";
+
+            puzzleCount ++;
+        };
+
+        document.getElementById("cont").style.display = "block";
+        cont.innerHTML = "Submit";
+
+        div.appendChild(mansionStory);
+    }
+
+    document.getElementById("cont").addEventListener("click", story)
+    document.getElementById("option1").addEventListener("click", inform1)
+    document.getElementById("option2").addEventListener("click", inform2)
+    document.getElementById("option3").addEventListener("click", inform3)
+</script>
