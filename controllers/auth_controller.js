@@ -27,7 +27,7 @@ const registerCreate = (req,res,next) =>{
             if(err){ 
                 next(err) 
             } else { 
-                res.redirect("/")
+                res.redirect("/creation")
             } 
         })    
        }  
@@ -41,7 +41,7 @@ const registerCreate = (req,res,next) =>{
 
 const logout = (req,res) =>{ 
     req.session.destroy(()=> {   
-        res.redirect("/") 
+        res.redirect("/")
      }) 
 }
 

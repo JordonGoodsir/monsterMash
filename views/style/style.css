@@ -5,6 +5,12 @@
   background-color: #18181a;
 }
 
+#page_login_register {
+  background-color: #18181a;
+  width: 100vw;
+  height: 100vh;
+}
+
 #monster {
   margin-left: 6rem;
 }
@@ -59,6 +65,10 @@ select, option {
   margin: -16rem -0rem;
 }
 
+.create_header h1 {
+  font-size: 4rem;
+}
+
 body a, body a:hover, body a:focus, body a:active {
   text-decoration: none;
   color: inherit;
@@ -76,6 +86,7 @@ body a, body a:hover, body a:focus, body a:active {
 nav {
   background-color: #18181a;
   width: 100vw;
+  height: 8vh;
 }
 
 .nav_container {
@@ -105,7 +116,7 @@ nav {
 #page {
   background-color: #18181a;
   width: 100vw;
-  height: 100vh;
+  height: 92vh;
 }
 
 .transition_button {

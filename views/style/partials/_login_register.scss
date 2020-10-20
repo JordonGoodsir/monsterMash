@@ -1,4 +1,10 @@
   .login_register_box{  
     border: 1px solid $body_color;  
     background-color: $background_color
+} 
+
+#page_login_register { 
+  background-color: $background_color;
+  width:100vw; 
+  height: 100vh; 
 }

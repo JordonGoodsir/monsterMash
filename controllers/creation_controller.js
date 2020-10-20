@@ -14,12 +14,11 @@ const monsterData = (req,res) =>{
 } 
 
 const customMonster = (req,res) => {  
-    if(req.user) { 
+    if(req.user && req.user.char.limbs.head) { 
         res.render("home",{userStatus: req.user ? true : false, user: req.user.char.limbs, helpers: { ifEquals:function(arg1, arg2, options) {return (arg1 == arg2) ? options.fn(this) : options.inverse(this)}}})
     } else { 
-        res.render("home",{userStatus: req.user ? true : false, user:{ head: 'zombo_head', body: 'zombo_body', rightArm: 'zombo_right_arm', leftArm: 'zombo_left_arm', rightLeg: 'zombo_right_leg', leftLeg: 'zombo_left_leg'}, helpers: { 
-            ifEquals:function(arg1, arg2, options) {return (arg1 == arg2) ? options.fn(this) : options.inverse(this)}
-        }})
+        res.render("home",{userStatus: req.user ? true : false, user:{ head: 'zombo_head', body: 'zombo_body', rightArm: 'zombo_right_arm', leftArm: 'zombo_left_arm', rightLeg: 'zombo_right_leg', leftLeg: 'zombo_left_leg'}, 
+        helpers: { ifEquals:function(arg1, arg2, options) {return (arg1 == arg2) ? options.fn(this) : options.inverse(this)}}})
     }
 }
 

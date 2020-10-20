@@ -53,22 +53,13 @@ const authorize = (req,res,next) =>{
     } else { 
         return res.redirect("/user/login")
     }
-}  
-
-const charCheck = (req,res,next) =>{  
-    if (!req.user.char.limbs.head) { 
-        res.render("creation", {userStatus: req.user ? true : false})
-    } else { 
-        next()
-    }
-}
+}   
 
 module.exports ={  
     loginRedirect, 
     authorize, 
     inUse, 
     invalidPass, 
-    invalidEmail, 
-    charCheck
+    invalidEmail
 } 
 
