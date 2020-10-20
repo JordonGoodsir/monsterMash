@@ -1,10 +1,9 @@
 const express = require('express');
-const router = express.Router();   
+const router = express.Router();    
+const {customMonster} = require("../controllers/creation_controller")
 const {authorize} = require("../middleware/auth_middleware")
 
-router.use("/",home = (req,res) => { 
-res.render("home", {user: req.user ? true : false}) 
-})
+router.use("/", customMonster)
 
 
 module.exports = router; 

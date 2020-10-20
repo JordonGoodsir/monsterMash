@@ -1,11 +1,44 @@
-home  
+<nav>  
+    <div class="nav_container"> 
+    <a class="homeNav" href="/">Home</a> 
+  
+    {{#if userStatus}}
+    <a class="logNav" href="/user/logout">Logout</a>  
+    {{else}}
+    <a class="logNav" href="/user/login">Login</a>    
+    {{/if}} 
+    </div>
+</nav>
+<div id="page" class="d-flex align-items-center">  
+<div class="container d-flex justify-content-center flex-column align-items-center">  
 
-{{#if user}}
-<a href="/user/logout">Logout</a>  
-{{else}}
-<a href="/user/login">Login</a>    
-{{/if}}  
+<div id="title">   
+    <h1>MONSTER</h1> 
+    <h1>MASH UP</h1>  
+</div>    
 
 
 
-
+<div id="monster" class="m-5"> 
+    <div id="monster_head"> 
+        <img class="monster" src=Images/{{user.head}}.png> 
+    </div> 
+    <div id="monster_body"> 
+        <img class="monster" src=Images/{{user.body}}.png> 
+    </div> 
+    <div id="monster_right_arm"> 
+        <img class="monster" src=Images/{{user.rightArm}}.png> 
+    </div> 
+    <div id="monster_left_arm"> 
+        <img class="monster" src=Images/{{user.leftArm}}.png> 
+    </div> 
+    <div id="monster_right_leg"> 
+        <img class="monster" src=Images/{{user.rightLeg}}.png> 
+    </div> 
+    <div id="monster_left_leg"> 
+        <img class="monster" src=Images/{{user.leftLeg}}.png> 
+    </div>
+</div>  
+<a href="/" id="button_at_home" class="transition_button">Story Mode</a>
+</div>  
+</div>

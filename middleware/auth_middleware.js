@@ -1,4 +1,5 @@
-const User = require("../models/user_model")
+const User = require("../models/user_model") 
+
 
 const loginRedirect = (req,res,next) =>{       
     if(req.user){ 
@@ -6,7 +7,7 @@ const loginRedirect = (req,res,next) =>{
     } else { 
         return next()
     }
-};    
+};     
 
 
 inUse = (req,res,next) => {  

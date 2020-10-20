@@ -1,20 +1,26 @@
-User = require("../models/user_model") 
+const { monsterStatus } = require("../middleware/auth_middleware")
+const User = require("../models/user_model") 
 
-const monsterData = (req,res) =>{ 
-    // console.log("hello jeff")    
+const monsterData = (req,res) =>{  
+    console.log(req.user.email)
+   
     const {head, body, right_arm, left_arm, right_leg, left_leg} = req.body  
-    console.log(head);
-    console.log(body);
-    console.log(right_arm);
-    console.log(left_arm);
-    console.log(right_leg);
-    console.log(left_leg);   
+ 
+    User.findOneAndUpdate({email: req.user.email}, {$set:{char:{limbs:{head:head,body:body,rightArm:right_arm,leftArm:left_arm,rightLeg:right_leg,leftLeg:left_leg}}}}) 
+    .then(data => console.log(data)) 
 
-    console.log(User.findOne({email:req.user.email}))
-    // console.log(document.getElementById("hi").innerHTML)
-    // res.send({head: req.body.head, torso: req.body.torso, right_arm: req.body.right_arm, left_arm: req.body.left_arm, right_leg: req.body.right_leg, left_leg: req.body.left_leg});
+    res.redirect("/")
+} 
+
+const customMonster = (req,res) => {  
+    if(req.user) { 
+        res.render("home",{userStatus: req.user ? true : false, user: req.user.char.limbs})
+    } else { 
+        res.render("home",{userStatus: req.user ? true : false, user:{ head: 'zombo_head', body: 'zombo_body', rightArm: 'zombo_right_arm', leftArm: 'zombo_left_arm', rightLeg: 'zombo_right_leg', leftLeg: 'zombo_left_leg'}})
+    }
 }
 
 module.exports = { 
-    monsterData 
+    monsterData, 
+    customMonster
 };

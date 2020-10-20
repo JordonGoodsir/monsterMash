@@ -1,5 +1,6 @@
-<form method="post" action="/creation">
+<div id="page">
 
+<form method="post" action="/creation">
     {{!-- head selection --}}
     <label for="head">Head: </label>
     <select id="head" name="head">
@@ -82,15 +83,18 @@
         console.log(document.getElementById("head").value)
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("head").value}.png` 
+        imgHead.classList.add("monster")  
         div.appendChild(imgHead)
     } 
 
-     bodyValue =()=>{  
+     bodyValue =()=>{   
+         imgHead.classList.add("monster")
         div = document.getElementById("monster_body")  
         div.innerHTML=""
         console.log(document.getElementById("body").value)
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("body").value}.png` 
+        imgHead.classList.add("monster")  
         div.appendChild(imgHead)
     } 
 
@@ -99,7 +103,8 @@
         div.innerHTML=""
         console.log(document.getElementById("right_arm").value)
         imgHead = document.createElement("IMG")  
-        imgHead.src = `Images/${document.getElementById("right_arm").value}.png` 
+        imgHead.src = `Images/${document.getElementById("right_arm").value}.png`  
+        imgHead.classList.add("monster")
         div.appendChild(imgHead)
     } 
 
@@ -109,6 +114,7 @@
         console.log(document.getElementById("left_arm").value)
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("left_arm").value}.png` 
+        imgHead.classList.add("monster") 
         div.appendChild(imgHead)
     } 
 
@@ -118,6 +124,7 @@
         console.log(document.getElementById("right_leg").value)
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("right_leg").value}.png` 
+        imgHead.classList.add("monster") 
         div.appendChild(imgHead)
     } 
 
@@ -126,7 +133,8 @@
         div.innerHTML=""
         console.log(document.getElementById("left_leg").value)
         imgHead = document.createElement("IMG")  
-        imgHead.src = `Images/${document.getElementById("left_leg").value}.png` 
+        imgHead.src = `Images/${document.getElementById("left_leg").value}.png`  
+        imgHead.classList.add("monster")
         div.appendChild(imgHead)
     }
 
@@ -146,7 +154,8 @@
     <div id="monster_left_arm"></div> 
     <div id="monster_right_leg"></div> 
     <div id="monster_left_leg"></div>
-</div>  
+</div>   
+</div>
 
 
 

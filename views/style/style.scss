@@ -1,7 +1,7 @@
 @import "partials/fonts_colors"; 
 @import "partials/login_register"; 
-@import "partials/create";
-
+@import "partials/create"; 
+@import "partials/home";
 
 * { 
     color:$body_color;
@@ -11,7 +11,7 @@
     background-color: $background_color;
     width:100vw; 
     height: 100vh; 
-  } 
+  }  
 
 .transition_button { 
   border:none;
