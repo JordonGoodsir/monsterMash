@@ -5,8 +5,9 @@ var exphbs  = require('express-handlebars');
 const indexRouter =  require(`./routes/index_routes`);   
 const authRouter =  require(`./routes/auth_routes`);   
 const pagesRouter =  require(`./routes/pages_routes`);  
-const creationRouter = require("./routes/creation_routes") 
-const session = require("express-session") 
+const creationRouter = require("./routes/creation_routes");
+const storyRouter = require("./routes/story_routes");
+const session = require("express-session");
 const MongoStore = require('connect-mongo')(session); 
 const passport = require("passport") 
 
@@ -33,7 +34,7 @@ const atlasUri = process.env.MONGO_URI
 
 // connects to mongodb and gets rid of warnings
 
-
+/*
 mongoose.connect(atlasUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -46,6 +47,7 @@ mongoose.connect(atlasUri, {
         console.log('Connected to database!');
     }
 });
+*/
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({ 
@@ -64,6 +66,7 @@ app.use(passport.session())
 app.use("/",express.static("public"));
 app.use(express.static("views"));
 
+app.use ("/story", storyRouter)
 app.use('/index', indexRouter); 
 app.use('/user', authRouter); 
 app.use('/creation', creationRouter)
