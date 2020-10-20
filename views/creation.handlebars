@@ -1,4 +1,4 @@
-<form id="creation" action="/creation" method="post">
+<form method="post" action="/creation">
 
     {{!-- head selection --}}
     <label for="head">Head: </label>
@@ -13,81 +13,140 @@
     <br>
 
     {{!-- body selection --}}
-    <label for="torso">Torso: </label>
-    <select id="torso" name="torso">
-        <option value="zombo_torso">Zombo Torso</option>
-        <option value="big_torso">Big Foot Torso</option>
-        <option value="vamp_torso">Vampire Torso</option>
-        <option value="robo_torso">Robot Torso</option>
-        <option value="headless_torso">Headless Horseman Torso</option>
+    <label for="body">Body: </label>
+    <select id="body" name="body">
+        <option value="zombo_body">Zombo body</option>
+        <option value="big_body">Big Foot body</option>
+        <option value="vamp_body">Vampire body</option>
+        <option value="robo_body">Robot body</option>
+        <option value="headless_body">Headless Horseman body</option>
     </select>
 
     <br>
 
     {{!-- right arm selection --}}
-    <label for="right_arm">Right Arm: </label>
+    <label for="right_arm">Left Arm: </label>
     <select id="right_arm" name="right_arm">
-        <option value="zombo_right_arm">Zombo Right Arm</option>
-        <option value="big_right_arm">Big Foot Right Arm</option>
-        <option value="vamp_right_arm">Vampire Right Arm</option>
-        <option value="robo_right_arm">Robot Right Arm</option>
-        <option value="headless_right_arm">Headless Horseman Right Arm</option>
+        <option value="zombo_right_arm">Zombo Left Arm</option>
+        <option value="big_right_arm">Big Foot Left Arm</option>
+        <option value="vamp_right_arm">Vampire Left Arm</option>
+        <option value="robo_right_arm">Robot Left Arm</option>
+        <option value="headless_right_arm">Headless Horseman Left Arm</option>
     </select>
 
     <br>
 
     {{!-- left arm selection --}}
-    <label for="left_arm">Left Arm: </label>
+    <label for="left_arm">Right Arm: </label>
     <select id="left_arm" name="left_arm">
-        <option value="zombo_left_arm">Zombo Left Arm</option>
-        <option value="big_left_arm">Big Foot Left Arm</option>
-        <option value="vamp_left_arm">Vampire Left Arm</option>
-        <option value="robo_left_arm">Robot Left Arm</option>
-        <option value="headless_left_arm">Headless Horseman Left Arm</option>
+        <option value="zombo_left_arm">Zombo Right Arm</option>
+        <option value="big_left_arm">Big Foot Right Arm</option>
+        <option value="vamp_left_arm">Vampire Right Arm</option>
+        <option value="robo_left_arm">Robot Right Arm</option>
+        <option value="headless_left_arm">Headless Horseman Right Arm</option>
     </select>
 
     <br>
 
     {{!-- right leg selection --}}
-    <label for="right_leg">Right Leg: </label>
+    <label for="right_leg">Left Leg: </label>
     <select id="right_leg" name="right_leg">
-        <option value="zombo_right_leg">Zombo Right Leg</option>
-        <option value="big_right_leg">Big Foot Right Leg</option>
-        <option value="vamp_right_leg">Vampire Right Leg</option>
-        <option value="robo_right_leg">Robot Right Leg</option>
-        <option value="headless_right_leg">Headless Horseman Right Leg</option>
+        <option value="zombo_right_leg">Zombo Left Leg</option>
+        <option value="big_right_leg">Big Foot Left Leg</option>
+        <option value="vamp_right_leg">Vampire Left Leg</option>
+        <option value="robo_right_leg">Robot Left Leg</option>
+        <option value="headless_right_leg">Headless Horseman Left Leg</option>
     </select>
 
     <br>
 
     {{!-- left leg selection --}}
-    <label for="left_leg">Left Leg: </label>
+    <label for="left_leg">Right Leg: </label>
     <select id="left_leg" name="left_leg">
-        <option value="zombo_left_leg">Zombo Left Leg</option>
-        <option value="big_left_leg">Big Foot Left Leg</option>
-        <option value="vamp_left_leg">Vampire Left Leg</option>
-        <option value="robo_left_leg">Robot Left Leg</option>
+        <option value="zombo_left_leg">Zombo Right Leg</option>
+        <option value="big_left_leg">Big Foot Right Leg</option>
+        <option value="vamp_left_leg">Vampire Right Leg</option>
+        <option value="robo_left_leg">Robot Right Leg</option>
         <option value="headless_left_leg">Headless Horseman Left Leg</option>
     </select>
 
     <br>
 
-    <input type="submit">
-</form>
+   <input class="transition_button m-4" type="submit" value="Create Monster">
+</form>  
+   
+<script>  
+    headValue =()=>{  
+        div = document.getElementById("monster_head")  
+        div.innerHTML=""
+        console.log(document.getElementById("head").value)
+        imgHead = document.createElement("IMG")  
+        imgHead.src = `Images/${document.getElementById("head").value}.png` 
+        div.appendChild(imgHead)
+    } 
 
-<div id="monster">
-    <img class="vampire" src="Images/Vampire.png" alt="Vampire" width="128" height="128"></img>
-</div>
+     bodyValue =()=>{  
+        div = document.getElementById("monster_body")  
+        div.innerHTML=""
+        console.log(document.getElementById("body").value)
+        imgHead = document.createElement("IMG")  
+        imgHead.src = `Images/${document.getElementById("body").value}.png` 
+        div.appendChild(imgHead)
+    } 
 
-<script>
+     rightArmValue =()=>{  
+        div = document.getElementById("monster_right_arm")  
+        div.innerHTML=""
+        console.log(document.getElementById("right_arm").value)
+        imgHead = document.createElement("IMG")  
+        imgHead.src = `Images/${document.getElementById("right_arm").value}.png` 
+        div.appendChild(imgHead)
+    } 
 
-    {{!-- let form = document.getElementById("creation")
+     leftArmValue =()=>{  
+        div = document.getElementById("monster_left_arm")  
+        div.innerHTML=""
+        console.log(document.getElementById("left_arm").value)
+        imgHead = document.createElement("IMG")  
+        imgHead.src = `Images/${document.getElementById("left_arm").value}.png` 
+        div.appendChild(imgHead)
+    } 
 
-    function stopSubmit(event) { event.preventDefault() }
-    form.addEventListener("submit", stopSubmit) --}}
+      rightLegValue =()=>{  
+        div = document.getElementById("monster_right_leg")  
+        div.innerHTML=""
+        console.log(document.getElementById("right_leg").value)
+        imgHead = document.createElement("IMG")  
+        imgHead.src = `Images/${document.getElementById("right_leg").value}.png` 
+        div.appendChild(imgHead)
+    } 
 
-    {{!-- function test() {
-        document.body.style.backgroundColor = "#000000";
-    } --}}
+     leftLegValue =()=>{  
+        div = document.getElementById("monster_left_leg")  
+        div.innerHTML=""
+        console.log(document.getElementById("left_leg").value)
+        imgHead = document.createElement("IMG")  
+        imgHead.src = `Images/${document.getElementById("left_leg").value}.png` 
+        div.appendChild(imgHead)
+    }
 
-</script>
+    document.getElementById("head").addEventListener("click", headValue) 
+    document.getElementById("body").addEventListener("click", bodyValue) 
+    document.getElementById("right_arm").addEventListener("click", rightArmValue) 
+    document.getElementById("left_arm").addEventListener("click", leftArmValue) 
+    document.getElementById("right_leg").addEventListener("click", rightLegValue) 
+    document.getElementById("left_leg").addEventListener("click", leftLegValue)
+</script> 
+
+
+<div id="monster"> 
+    <div id="monster_head"></div> 
+    <div id="monster_body"></div> 
+    <div id="monster_right_arm"></div> 
+    <div id="monster_left_arm"></div> 
+    <div id="monster_right_leg"></div> 
+    <div id="monster_left_leg"></div>
+</div>  
+
+
+

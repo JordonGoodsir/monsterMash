@@ -3,22 +3,11 @@ const User = require("../models/user_model")
 const loginRedirect = (req,res,next) =>{       
     if(req.user){ 
         return res.redirect("/") 
-        // return res.render("home",{user: req.session.loggedStatus})
     } else { 
         return next()
     }
 };    
 
-// loggedStatusCheck = (req,res,next,path) => { 
-// console.log(path)
-// if(req.user) { 
-//   res.render(`/${path}`, {userStatus: true}) 
-//   next()
-// } else { 
-//     res.render(`/${path}`, {userStatus: false})  
-//     next()
-// }
-// }
 
 inUse = (req,res,next) => {  
     User.findOne({email: req.body.email}) 
@@ -67,8 +56,7 @@ const authorize = (req,res,next) =>{
     } else { 
         return res.redirect("/user/login")
     }
-}
-
+} 
 
 module.exports ={  
     loginRedirect, 

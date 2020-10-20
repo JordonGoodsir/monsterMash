@@ -10,7 +10,18 @@ const User = new Schema({
     password: { 
         type: String,
         required: true
-    }
+    }, 
+    char: {  
+        // type: String, 
+        limbs: { 
+            head:String, 
+            body:String ,
+            rightArm:String,
+            leftArm:String, 
+            rightLeg: String,
+            leftLeg:String
+        }
+       }
 });   
 
 
