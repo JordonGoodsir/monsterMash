@@ -20,7 +20,6 @@ select, option {
   font-size: 2rem
 }
 
-
 #monster_head { 
     margin: 0; 
     padding: 0; 
@@ -30,7 +29,7 @@ select, option {
 
 #monster_body {  
     position:relative;
-    margin: -16rem -0rem
+    margin: -16rem -0rem;  
 } 
 
 #monster_right_arm {  
@@ -46,15 +45,17 @@ select, option {
 } 
 
 
-#monster_right_leg {  
+#monster_left_leg {  
     position:relative;
-    margin: -16rem -0rem; 
+    margin: -16rem -0rem;   
+    z-index: 1; 
 } 
 
 
 #monster_right_leg {  
     position:relative;
-    margin: -16rem -0rem
+    margin: -16rem -0rem;   
+    z-index:2;
 }  
 
 .create_header h1 { 

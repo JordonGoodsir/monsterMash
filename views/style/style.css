@@ -55,14 +55,16 @@ select, option {
   margin: -16rem -0rem;
 }
 
-#monster_right_leg {
+#monster_left_leg {
   position: relative;
   margin: -16rem -0rem;
+  z-index: 1;
 }
 
 #monster_right_leg {
   position: relative;
   margin: -16rem -0rem;
+  z-index: 2;
 }
 
 .create_header h1 {
@@ -117,6 +119,7 @@ nav {
   background-color: #18181a;
   width: 100vw;
   height: 92vh;
+  z-index: 0;
 }
 
 .transition_button {
