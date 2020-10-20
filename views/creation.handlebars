@@ -1,5 +1,17 @@
-<div id="page">
-
+<nav>  
+    <div class="nav_container"> 
+    <a href="/">Home</a>  
+    <a href="/creation">Monster Creation</a> 
+  
+    {{#if userStatus}}
+    <a href="/user/logout">Logout</a>  
+    {{else}}
+    <a href="/user/login">Login</a>    
+    {{/if}} 
+    </div>
+</nav>
+<div id="page" class="d-flex align-items-center"> 
+<div class="d-flex container justify-content-center">
 <form method="post" action="/creation">
     {{!-- head selection --}}
     <label for="head">Head: </label>
@@ -20,7 +32,7 @@
         <option value="big_body">Big Foot body</option>
         <option value="vamp_body">Vampire body</option>
         <option value="robo_body">Robot body</option>
-        <option value="headless_body">Headless Horseman body</option>
+        <option value="headless_body">Headless Horseman body</option> 
     </select>
 
     <br>
@@ -32,7 +44,9 @@
         <option value="big_right_arm">Big Foot Left Arm</option>
         <option value="vamp_right_arm">Vampire Left Arm</option>
         <option value="robo_right_arm">Robot Left Arm</option>
-        <option value="headless_right_arm">Headless Horseman Left Arm</option>
+        <option value="headless_right_arm">Headless Horseman Left Arm</option> 
+        <option value="none">none</option> 
+
     </select>
 
     <br>
@@ -44,7 +58,9 @@
         <option value="big_left_arm">Big Foot Right Arm</option>
         <option value="vamp_left_arm">Vampire Right Arm</option>
         <option value="robo_left_arm">Robot Right Arm</option>
-        <option value="headless_left_arm">Headless Horseman Right Arm</option>
+        <option value="headless_left_arm">Headless Horseman Right Arm</option> 
+        <option value="none">none</option> 
+
     </select>
 
     <br>
@@ -56,7 +72,8 @@
         <option value="big_right_leg">Big Foot Left Leg</option>
         <option value="vamp_right_leg">Vampire Left Leg</option>
         <option value="robo_right_leg">Robot Left Leg</option>
-        <option value="headless_right_leg">Headless Horseman Left Leg</option>
+        <option value="headless_right_leg">Headless Horseman Left Leg</option> 
+        <option value="none">none</option> 
     </select>
 
     <br>
@@ -68,12 +85,14 @@
         <option value="big_left_leg">Big Foot Right Leg</option>
         <option value="vamp_left_leg">Vampire Right Leg</option>
         <option value="robo_left_leg">Robot Right Leg</option>
-        <option value="headless_left_leg">Headless Horseman Left Leg</option>
+        <option value="headless_left_leg">Headless Horseman Left Leg</option> 
+        <option value="none">none</option> 
+
     </select>
 
     <br>
 
-   <input class="transition_button m-4" type="submit" value="Create Monster">
+   <input id="create_submit_button" class="transition_button mt-4" type="submit" value="Create Monster">
 </form>  
    
 <script>  
@@ -101,42 +120,50 @@
      rightArmValue =()=>{  
         div = document.getElementById("monster_right_arm")  
         div.innerHTML=""
-        console.log(document.getElementById("right_arm").value)
+        console.log(document.getElementById("right_arm").value) 
+        if (document.getElementById("right_arm").value != "none") {
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("right_arm").value}.png`  
         imgHead.classList.add("monster")
-        div.appendChild(imgHead)
+        div.appendChild(imgHead) 
+        }
     } 
 
      leftArmValue =()=>{  
         div = document.getElementById("monster_left_arm")  
         div.innerHTML=""
-        console.log(document.getElementById("left_arm").value)
+        console.log(document.getElementById("left_arm").value) 
+        if (document.getElementById("left_arm").value != "none"){
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("left_arm").value}.png` 
         imgHead.classList.add("monster") 
-        div.appendChild(imgHead)
+        div.appendChild(imgHead) 
+        }
     } 
 
       rightLegValue =()=>{  
         div = document.getElementById("monster_right_leg")  
-        div.innerHTML=""
-        console.log(document.getElementById("right_leg").value)
+        div.innerHTML="" 
+        console.log(document.getElementById("right_leg").value) 
+         if (document.getElementById("right_leg").value != "none"){
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("right_leg").value}.png` 
         imgHead.classList.add("monster") 
-        div.appendChild(imgHead)
-    } 
+        div.appendChild(imgHead)  
+        }
+        }
 
      leftLegValue =()=>{  
         div = document.getElementById("monster_left_leg")  
         div.innerHTML=""
-        console.log(document.getElementById("left_leg").value)
+        console.log(document.getElementById("left_leg").value) 
+        if (document.getElementById("left_leg").value != "none"){
         imgHead = document.createElement("IMG")  
         imgHead.src = `Images/${document.getElementById("left_leg").value}.png`  
         imgHead.classList.add("monster")
-        div.appendChild(imgHead)
-    }
+        div.appendChild(imgHead) 
+        }
+     }
 
     document.getElementById("head").addEventListener("click", headValue) 
     document.getElementById("body").addEventListener("click", bodyValue) 
@@ -148,13 +175,14 @@
 
 
 <div id="monster"> 
-    <div id="monster_head"></div> 
-    <div id="monster_body"></div> 
-    <div id="monster_right_arm"></div> 
-    <div id="monster_left_arm"></div> 
-    <div id="monster_right_leg"></div> 
-    <div id="monster_left_leg"></div>
+    <div id="monster_head"><img class="monster" src="Images/zombo_head.png"></div> 
+    <div id="monster_body"><img class="monster" src="Images/zombo_body.png"></div> 
+    <div id="monster_right_arm"><img class="monster" src="Images/zombo_right_arm.png"></div> 
+    <div id="monster_left_arm"><img class="monster" src="Images/zombo_left_arm.png"></div> 
+    <div id="monster_right_leg"><img class="monster" src="Images/zombo_right_leg.png"></div> 
+    <div id="monster_left_leg"><img class="monster" src="Images/zombo_left_leg.png"></div>
 </div>   
+</div> 
 </div>
 
 

@@ -8,7 +8,9 @@ const pagesRouter =  require(`./routes/pages_routes`);
 const creationRouter = require("./routes/creation_routes") 
 const session = require("express-session") 
 const MongoStore = require('connect-mongo')(session); 
-const passport = require("passport") 
+const passport = require("passport")  
+var exphbs = require('express-handlebars') 
+
 
 // configure local strategy for passport 
 require("./middleware/passport")
@@ -24,7 +26,17 @@ app.use(express.json());
 
 app.use(express.urlencoded({ 
     extended: true
-})); 
+}));   
+
+const hbs = exphbs.create({ 
+    helpers: { 
+        ifEquals:function(arg1, arg2, options) {return (arg1 == arg2) ? options.fn(this) : options.inverse(this)}
+    }
+});
+
+// hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+//     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+// }); 
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');   
@@ -59,7 +71,8 @@ app.use(session({
 
 // enables passport with passport file in middleware folder
 app.use(passport.initialize()) 
-app.use(passport.session())  
+app.use(passport.session())   
+
 
 app.use("/",express.static("public"));
 app.use(express.static("views"));

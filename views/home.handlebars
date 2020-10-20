@@ -1,11 +1,12 @@
 <nav>  
     <div class="nav_container"> 
-    <a class="homeNav" href="/">Home</a> 
+    <a href="/">Home</a>  
+    <a href="/creation">Monster Creation</a> 
   
     {{#if userStatus}}
-    <a class="logNav" href="/user/logout">Logout</a>  
+    <a href="/user/logout">Logout</a>  
     {{else}}
-    <a class="logNav" href="/user/login">Login</a>    
+    <a href="/user/login">Login</a>    
     {{/if}} 
     </div>
 </nav>
@@ -21,22 +22,46 @@
 
 <div id="monster" class="m-5"> 
     <div id="monster_head"> 
+        {{#ifEquals user.head "none"}}  
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
         <img class="monster" src=Images/{{user.head}}.png> 
+        {{/ifEquals}} 
     </div> 
     <div id="monster_body"> 
-        <img class="monster" src=Images/{{user.body}}.png> 
+        {{#ifEquals user.body "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.body}}.png>
+        {{/ifEquals}} 
     </div> 
     <div id="monster_right_arm"> 
-        <img class="monster" src=Images/{{user.rightArm}}.png> 
+        {{#ifEquals user.rightArm "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.rightArm}}.png>
+        {{/ifEquals}} 
     </div> 
     <div id="monster_left_arm"> 
-        <img class="monster" src=Images/{{user.leftArm}}.png> 
+        {{#ifEquals user.leftArm "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.leftArm}}.png>
+        {{/ifEquals}} 
     </div> 
     <div id="monster_right_leg"> 
-        <img class="monster" src=Images/{{user.rightLeg}}.png> 
+        {{#ifEquals user.rightLeg "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.rightLeg}}.png>
+        {{/ifEquals}} 
     </div> 
     <div id="monster_left_leg"> 
+        {{#ifEquals user.leftLeg "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
         <img class="monster" src=Images/{{user.leftLeg}}.png> 
+        {{/ifEquals}} 
     </div>
 </div>  
 <a href="/" id="button_at_home" class="transition_button">Story Mode</a>

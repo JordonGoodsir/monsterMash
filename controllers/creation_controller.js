@@ -1,5 +1,6 @@
 const { monsterStatus } = require("../middleware/auth_middleware")
-const User = require("../models/user_model") 
+const User = require("../models/user_model")  
+
 
 const monsterData = (req,res) =>{  
     console.log(req.user.email)
@@ -14,13 +15,15 @@ const monsterData = (req,res) =>{
 
 const customMonster = (req,res) => {  
     if(req.user) { 
-        res.render("home",{userStatus: req.user ? true : false, user: req.user.char.limbs})
+        res.render("home",{userStatus: req.user ? true : false, user: req.user.char.limbs, helpers: { ifEquals:function(arg1, arg2, options) {return (arg1 == arg2) ? options.fn(this) : options.inverse(this)}}})
     } else { 
-        res.render("home",{userStatus: req.user ? true : false, user:{ head: 'zombo_head', body: 'zombo_body', rightArm: 'zombo_right_arm', leftArm: 'zombo_left_arm', rightLeg: 'zombo_right_leg', leftLeg: 'zombo_left_leg'}})
+        res.render("home",{userStatus: req.user ? true : false, user:{ head: 'zombo_head', body: 'zombo_body', rightArm: 'zombo_right_arm', leftArm: 'zombo_left_arm', rightLeg: 'zombo_right_leg', leftLeg: 'zombo_left_leg'}, helpers: { 
+            ifEquals:function(arg1, arg2, options) {return (arg1 == arg2) ? options.fn(this) : options.inverse(this)}
+        }})
     }
 }
 
 module.exports = { 
     monsterData, 
     customMonster
-};
+};  

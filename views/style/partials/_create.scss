@@ -1,8 +1,25 @@
+#monster { 
+    margin-left: 6rem
+}
 
 .monster {  
     height:16rem; 
     width:16rem
-} 
+}   
+
+form{  
+   text-align: right;
+}
+
+select, option {
+    width:13rem;
+    color:black;
+}
+
+#create_submit_button { 
+  font-size: 2rem
+}
+
 
 #monster_head { 
     margin: 0; 
@@ -38,4 +55,4 @@
 #monster_right_leg {  
     position:relative;
     margin: -16rem -0rem
-}
+} 
