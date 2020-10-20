@@ -11,8 +11,7 @@ const User = new Schema({
         type: String,
         required: true
     }, 
-    char: {  
-        // type: String, 
+    char: {   
         limbs: { 
             head:String, 
             body:String ,
