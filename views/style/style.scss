@@ -1,0 +1,42 @@
+@import "partials/fonts_colors"; 
+@import "partials/login_register"; 
+@import "partials/create";
+
+
+* { 
+    color:$body_color;
+}  
+
+#page { 
+    background-color: $background_color;
+    width:100vw; 
+    height: 100vh; 
+  } 
+
+.transition_button { 
+  border:none;
+  padding: 0.1rem 2rem; 
+  font-family: $header_font;
+  transition: 0.5s;
+  font-size: 1.3rem;
+  background-color: $header_color; 
+  color: $body_color; 
+  text-decoration: none; 
+} 
+
+.transition_button:hover { 
+    border-radius: 0.4rem;  
+    background-color: $body_color;  
+    color: $header_color;  
+    text-decoration: none; 
+} 
+
+input { 
+  color:black
+}
+
+
+h1 { 
+    color:$header_color;
+    font-family: $header_font
+}

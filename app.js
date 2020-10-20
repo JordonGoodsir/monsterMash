@@ -2,11 +2,16 @@
 const express = require('express');
 const mongoose = require('mongoose');  
 var exphbs  = require('express-handlebars');
-const indexRouter =  require(`./routes/index_routes`);  
+const indexRouter =  require(`./routes/index_routes`);   
+const authRouter =  require(`./routes/auth_routes`);   
+const pagesRouter =  require(`./routes/pages_routes`);  
+const creationRouter = require("./routes/creation_routes") 
 const session = require("express-session") 
 const MongoStore = require('connect-mongo')(session); 
-const passport = require("passport")
+const passport = require("passport") 
 
+// configure local strategy for passport 
+require("./middleware/passport")
 
 
 // set up 
@@ -18,7 +23,7 @@ require('dotenv').config()
 app.use(express.json()); 
 
 app.use(express.urlencoded({ 
-    extended:true
+    extended: true
 })); 
 
 app.engine('handlebars', exphbs());
@@ -27,6 +32,7 @@ app.set('view engine', 'handlebars');
 const atlasUri = process.env.MONGO_URI 
 
 // connects to mongodb and gets rid of warnings
+
 
 mongoose.connect(atlasUri, {
     useNewUrlParser: true,
@@ -39,7 +45,7 @@ mongoose.connect(atlasUri, {
     } else {
         console.log('Connected to database!');
     }
-});   
+});
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({ 
@@ -52,12 +58,17 @@ app.use(session({
 
 
 // enables passport with passport file in middleware folder
-// app.use(passport.initialize()) 
-// app.use(passport.session())
+app.use(passport.initialize()) 
+app.use(passport.session())  
 
+app.use("/",express.static("public"));
+app.use(express.static("views"));
 
-// middleware to access secondary routes file
-app.use('/index', indexRouter);
+app.use('/index', indexRouter); 
+app.use('/user', authRouter); 
+app.use('/creation', creationRouter)
+app.use('/', pagesRouter); 
+
 
 // confirm server working
 app.listen(port, () => {

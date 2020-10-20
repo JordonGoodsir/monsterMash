@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+.login_register_box {
+  border: 1px solid #f5f5f5;
+  background-color: #18181a;
+}
+
+#monster_head {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#monster_body {
+  position: relative;
+  margin: -8rem -0rem;
+}
+
+#monster_right_arm {
+  position: relative;
+  margin: -8rem -0rem;
+  z-index: 5;
+}
+
+#monster_left_arm {
+  position: relative;
+  margin: -8rem -0rem;
+}
+
+#monster_right_leg {
+  position: relative;
+  margin: -8rem -0rem;
+}
+
+#monster_right_leg {
+  position: relative;
+  margin: -8rem -0rem;
+}
+
+* {
+  color: #f5f5f5;
+}
+
+#page {
+  background-color: #18181a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.transition_button {
+  border: none;
+  padding: 0.1rem 2rem;
+  font-family: "Creepster", cursive;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 1.3rem;
+  background-color: #5e32ba;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.transition_button:hover {
+  border-radius: 0.4rem;
+  background-color: #f5f5f5;
+  color: #5e32ba;
+  text-decoration: none;
+}
+
+input {
+  color: black;
+}
+
+h1 {
+  color: #5e32ba;
+  font-family: "Creepster", cursive;
+}
+/*# sourceMappingURL=style.css.map */
