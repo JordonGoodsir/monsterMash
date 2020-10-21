@@ -1,0 +1,50 @@
+.parchment { 
+    position: absolute; 
+    z-index: 0; 
+    width:35vw;
+    height:92vh
+} 
+
+.story_text { 
+    z-index:1;  
+    width:25vw; 
+    text-align: center;  
+    font-family: $story_font; 
+    font-size: 1.6rem;
+} 
+
+.story_header { 
+    z-index: 1;  
+    width:25vw; 
+    text-align: center; 
+}
+
+
+.story_button {  
+    z-index: 2000;
+}   
+
+#story_buttons{ 
+    z-index: 1; 
+} 
+
+.story_monster {  
+   margin-left:1rem;
+} 
+
+#test { 
+    z-index:10; 
+    color:red; 
+    font-size: 4rem; 
+    margin-left: 2rem
+}   
+
+.story_container { 
+    margin-right: -20rem; 
+    margin-left: 14.6rem
+} 
+
+#cont { 
+    margin-top:1.3rem; 
+    justify-content: center;
+}
