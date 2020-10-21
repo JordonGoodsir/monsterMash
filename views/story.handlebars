@@ -1,20 +1,103 @@
-<div id="character">
-    <h1>Character</h1>
-</div>
-
-<h1>Story</h1>
-<div id="story">
+<nav>  
+    <div class="nav_container"> 
+    <a href="/">Home</a>  
+    <a href="/creation">Monster Creation</a> 
+  
+    {{#if userStatus}}
+    <a href="/user/logout">Logout</a>  
+    {{else}}
+    <a href="/user/login">Login</a>    
+    {{/if}} 
+    </div>
+</nav> 
+{{!-- <div id="page" class="d-flex align-items-center">   
+<div class="container d-flex justify-content-center flex-column align-items-center"> 
+<div class="d-flex justify-content-start flex-column align-items-center">
+<h1 class="m-5 story_header">Dark Wood Mansion</h1>
+<div id="story" class="m-5 story_text">
     <p>Out of the storm and along the drive of Darkwood Mansion an amalgamation hobbles up to the sturdy iron gates.</p>
-</div>
+</div>  
+<img class="parchment" src="Images/parchment.png">
+</div> 
+  
 
-<div>
-    <button type="button" id="option1">Option1</button>
-    <button type="button" id="option2">Option2</button>
-    <button type="button" id="option3">Option3</button>
-    <button type="button" id="cont">Start</button>
-    <a id="finish" href="/">Return Home</a>
-</div>
+<div id="story_buttons">
+    <button type="button" id="option1" class="story_button transition_button">Option1</button>
+    <button type="button" id="option2" class="story_button transition_button">Option2</button>
+    <button type="button" id="option3" class="story_button transition_button">Option3</button>
+    <button type="button" id="cont" class="story_button transition_button">Start</button>
+    <a id="finish" href="/" class="story_button transition_button">Return Home</a>
+</div> 
+   
+</div>  
+<p id="test">hi</p>  
+</div>    --}} 
 
+<div id="page" class="d-flex align-items-center">  
+    <div class="container d-flex justify-content-center align-items-center">
+    <img class="parchment" src="Images/parchment.png">  
+      <div class="d-flex flex-column align-items-center story_container">
+      <h1 class="m-5 story_header">Dark Wood Mansion</h1> 
+      <div id="story" class="m-5 story_text">
+       <p>Out of the storm and along the drive of Darkwood Mansion an amalgamation hobbles up to the sturdy iron gates.</p>
+      </div> 
+
+    <div id="story_buttons">
+    <button type="button" id="option1" class="story_button transition_button">Option1</button>
+    <button type="button" id="option2" class="story_button transition_button">Option2</button>
+    <button type="button" id="option3" class="story_button transition_button">Option3</button>
+    <button type="button" id="cont" class="story_button transition_button">Start</button>
+    <a id="finish" href="/" class="story_button transition_button">Return Home</a>
+     </div>  
+
+      </div>  
+     <div style="margin-left:20rem;margin-bottom:12rem" id="monster"> 
+    <div id="monster_head"> 
+        {{#ifEquals user.head "none"}}  
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.head}}.png> 
+        {{/ifEquals}} 
+    </div> 
+    <div id="monster_body"> 
+        {{#ifEquals user.body "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.body}}.png>
+        {{/ifEquals}} 
+    </div> 
+    <div id="monster_right_arm"> 
+        {{#ifEquals user.rightArm "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.rightArm}}.png>
+        {{/ifEquals}} 
+    </div> 
+    <div id="monster_left_arm"> 
+        {{#ifEquals user.leftArm "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.leftArm}}.png>
+        {{/ifEquals}} 
+    </div> 
+    <div id="monster_right_leg"> 
+        {{#ifEquals user.rightLeg "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.rightLeg}}.png>
+        {{/ifEquals}} 
+    </div> 
+    <div id="monster_left_leg"> 
+        {{#ifEquals user.leftLeg "none"}} 
+        <img class="monster" src=Images/none.png>  
+        {{else}} 
+        <img class="monster" src=Images/{{user.leftLeg}}.png> 
+        {{/ifEquals}} 
+    </div>
+</div>  
+
+    </div> 
+</div>
 <script>
 
     document.getElementById("option1").style.display = "none";
@@ -56,11 +139,11 @@
             // Study
             mansionStory = document.createTextNode("In an attempt to distract themself, the monster slinks into the nearby study...looking for a book to read the monster comes across a desk, sitting on the desk are two items a skull and a small book of poems.");
 
-            document.getElementById("cont").style.display = "none";
+            document.getElementById("cont").style.display = "none"; 
 
-            document.getElementById("option1").style.display = "block";
-            document.getElementById("option2").style.display = "block";
-            document.getElementById("option3").style.display = "block";
+            document.getElementById("option1").style.display = "inline"; 
+            document.getElementById("option2").style.display = "inline";
+            document.getElementById("option3").style.display = "inline";
 
             option1.innerHTML = "check desk";
             option2.innerHTML = "check skull";
@@ -233,8 +316,8 @@
             option2.innerHTML = "Intelligent Flytrap";
             option3.innerHTML = "Optical Blood Rose";
 
-            document.getElementById("option2").style.display = "block";
-            document.getElementById("option3").style.display = "block";
+            document.getElementById("option2").style.display = "inline";
+            document.getElementById("option3").style.display = "inline";
 
             cont.innerHTML = "Submit";
 
@@ -321,7 +404,7 @@
             puzzleCount ++;
         };
 
-        document.getElementById("cont").style.display = "block";
+        document.getElementById("cont").style.display = "flex"; 
         cont.innerHTML = "Submit";
 
         div.appendChild(mansionStory);

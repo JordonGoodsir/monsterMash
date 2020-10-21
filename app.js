@@ -5,7 +5,8 @@ var exphbs  = require('express-handlebars');
 const indexRouter =  require(`./routes/index_routes`);   
 const authRouter =  require(`./routes/auth_routes`);   
 const pagesRouter =  require(`./routes/pages_routes`);  
-const creationRouter = require("./routes/creation_routes") 
+const creationRouter = require("./routes/creation_routes")  
+const storyRouter =  require("./routes/story_routes")
 const session = require("express-session") 
 const MongoStore = require('connect-mongo')(session); 
 const passport = require("passport")  
@@ -79,7 +80,8 @@ app.use(express.static("views"));
 
 app.use('/index', indexRouter); 
 app.use('/user', authRouter); 
-app.use('/creation', creationRouter)
+app.use('/creation', creationRouter) 
+app.use('/story', storyRouter)
 app.use('/', pagesRouter); 
 
 
