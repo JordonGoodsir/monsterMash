@@ -13,18 +13,22 @@ passport.deserializeUser((userId,done) =>{
 })
 
 const canLogin = (user,password) =>{  
-    if (user){  
-    return user.verifyPassword(password) 
+    if (user){   
+    user.verifyPasswordSync(password) 
+    .then(user =>{  
+        return user
+    })   
+    .catch(err => console.log(err))  
     } else { 
         return false
     }
 } 
 
-verifyCallback = (email, password,done) => { 
- 
-    User.findOne({email}) 
+verifyCallback = (email, password,done) => {  
+    User.findOne({email})  
     .then((user)=>{ 
-        if(canLogin(user,password)) { 
+        if(canLogin(user,password)) {  
+            console.log("hi")
          return done(null, user)
         } else {  
             return done(null, false)
@@ -33,8 +37,8 @@ verifyCallback = (email, password,done) => {
     .catch(done)
 } 
 
-const altFields = { 
-    usernameField: "email"
-} 
+const fields = { 
+    usernameField: "email" 
+    } 
 
-passport.use(new LocalStrategy(altFields, verifyCallback))
+passport.use(new LocalStrategy(fields, verifyCallback))

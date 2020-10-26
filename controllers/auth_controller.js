@@ -4,15 +4,14 @@ const passport = require("passport")
 
 const login = (req,res) => { 
     res.render("user/login")
-}   
+}  
 
-const loginCreate = (req,res,next)=> {    
-
+const loginCreate = (req,res,next)=> {     
     const login = passport.authenticate("local",  
     { 
         successRedirect:"/", 
         failureRedirect:"/user/login"
-    })
+    })   
     login(req,res,next)  
 } 
 
@@ -33,8 +32,6 @@ const registerCreate = (req,res,next) =>{
        }  
 
        const {email, password} = req.body  
-    //    console.log(req.body) 
-
     User.create({email,password})   
     .then(newUserHandler)  
 } 
