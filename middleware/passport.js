@@ -12,11 +12,15 @@ passport.deserializeUser((userId,done) =>{
     .catch(done)
 })
 
-const canLogin = (user,password) =>{  
+const canLogin = (user,password,done) =>{  
     if (user){   
-    user.verifyPasswordSync(password) 
-    .then(user =>{  
-        return user
+    user.verifyPassword(password) 
+    .then(status =>{   
+        if(status) {  
+         return done(null, user)
+        } else {  
+            return done(null, false)
+        }
     })   
     .catch(err => console.log(err))  
     } else { 
@@ -26,13 +30,8 @@ const canLogin = (user,password) =>{
 
 verifyCallback = (email, password,done) => {  
     User.findOne({email})  
-    .then((user)=>{ 
-        if(canLogin(user,password)) {  
-            console.log("hi")
-         return done(null, user)
-        } else {  
-            return done(null, false)
-        }
+    .then((user)=>{   
+      canLogin(user,password,done) 
     }) 
     .catch(done)
 } 

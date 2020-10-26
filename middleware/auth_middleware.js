@@ -21,39 +21,18 @@ inUse = (req,res,next) => {
     .catch(next)
   }    
 
-  invalidPass = (req,res,next) => {   
-    User.findOne({password: req.body.password}) 
-    .then(user => { 
-        if (user) {  
-            next()
-        } else (  
-            res.render("user/login", {error: "Invalid email or password"})
-        )
-    }) 
-    .catch(next)
-  }    
-
-  invalidEmail = (req,res,next) => {   
-    User.findOne({email: req.body.email}) 
-    .then(user => { 
-        if (user) {  
-            next()
-        } else ( 
-            res.render("user/login", {error: "Invalid email or password"})
-        )
-    }) 
-    .catch(next)
-  }   
-
   detailsCheck = (req,res,next) =>{  
        User.findOne({email:req.body.email}) 
-       .then((user) => {  
-    //    if(user.verifyPassword(user.password)){ 
-    //      next() 
-    //    }else { 
-    //     res.render("user/login", {error: "Invalid email or password"})
-    //    } 
-    next()
+       .then((user) => {   
+         user.verifyPassword(req.body.password)   
+         .then(status => { 
+            if(status) {  
+                 next()
+             } else { 
+                res.render("user/login", {error: "Invalid email or password"}) 
+             } 
+         })   
+
        }) 
        .catch(next)
   }  
@@ -71,7 +50,6 @@ module.exports ={
     loginRedirect, 
     authorize, 
     inUse, 
-    invalidEmail, 
     detailsCheck
 } 
 

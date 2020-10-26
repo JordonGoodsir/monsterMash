@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();  
 const {login,loginCreate,register,registerCreate,logout} = require("../controllers/auth_controller")
-const {loginRedirect, inUse,invalidEmail, detailsCheck} = require("../middleware/auth_middleware")
+const {loginRedirect, inUse, detailsCheck} = require("../middleware/auth_middleware")
 
 // renders login page, if login redirect passes
 router.get("/login", loginRedirect, login)  
 
 // logs in user
 // router.post("/login", invalidEmail, invalidPass,loginCreate)  
-router.post("/login",loginCreate) 
+router.post("/login",detailsCheck,loginCreate) 
 
 
 // renders register page (sign up)
