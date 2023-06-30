@@ -42,7 +42,7 @@ const hbs = exphbs.create({
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');   
 
-const atlasUri = process.env.MONGO_URI 
+const atlasUri = process.env.MONGO_URI
 
 // connects to mongodb and gets rid of warnings
 

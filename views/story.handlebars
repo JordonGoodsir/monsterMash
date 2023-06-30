@@ -10,28 +10,6 @@
     {{/if}} 
     </div>
 </nav> 
-{{!-- <div id="page" class="d-flex align-items-center">   
-<div class="container d-flex justify-content-center flex-column align-items-center"> 
-<div class="d-flex justify-content-start flex-column align-items-center">
-<h1 class="m-5 story_header">Dark Wood Mansion</h1>
-<div id="story" class="m-5 story_text">
-    <p>Out of the storm and along the drive of Darkwood Mansion an amalgamation hobbles up to the sturdy iron gates.</p>
-</div>  
-<img class="parchment" src="Images/parchment.png">
-</div> 
-  
-
-<div id="story_buttons">
-    <button type="button" id="option1" class="story_button transition_button">Option1</button>
-    <button type="button" id="option2" class="story_button transition_button">Option2</button>
-    <button type="button" id="option3" class="story_button transition_button">Option3</button>
-    <button type="button" id="cont" class="story_button transition_button">Start</button>
-    <a id="finish" href="/" class="story_button transition_button">Return Home</a>
-</div> 
-   
-</div>  
-<p id="test">hi</p>  
-</div>    --}} 
 
 <div id="page" class="d-flex align-items-center">  
     <div class="container d-flex justify-content-center align-items-center">
@@ -46,8 +24,8 @@
     <button type="button" id="option1" class="story_button transition_button">Option1</button>
     <button type="button" id="option2" class="story_button transition_button">Option2</button>
     <button type="button" id="option3" class="story_button transition_button">Option3</button>
-    <button type="button" id="cont" class="story_button transition_button">Start</button>
-    <a id="finish" href="/" class="story_button transition_button">Return Home</a>
+    <button type="button" id="cont" class="story_button transition_button mt-5">Start</button>
+    <button id="finish" href="/" class="story_button transition_button mt-5">Return Home</button>
      </div>  
 
       </div>  
@@ -121,8 +99,6 @@
     let puzzleCount = 0
 
     document.getElementById("finish").style.display = "none";
-
-    // if (req.user.char.limbs.leftLeg && req.user.char.limbs.rightLeg) {}
 
     story = () => {  
         div = document.getElementById("story")  
